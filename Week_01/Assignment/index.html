@@ -29,10 +29,9 @@
         function testGuess(){
             // input value from user
             var inputNumber = parseInt(document.getElementById("number").value);
-
-            // log
             console.log("Input Number: ", inputNumber);
 
+            // execute
             if (inputNumber == randomNumber){
                 document.getElementById("p1").innerHTML = "YOU ARE THE LORD OF THE GUESSES";
                 document.getElementById("p1").style.backgroundColor = "green";
@@ -40,7 +39,7 @@
             else if (inputNumber < randomNumber){
                 count--;
                 if (count == 0){
-                    alert("Lose!");
+                    alert("YOU LOSE!");
                     location.reload();
                 }
                 document.getElementById("p1").innerHTML = "Your guess was too low, guess higher. You have " + count + " guesses left !";
@@ -49,6 +48,7 @@
             else{
                 count--;
                 if (count == 0){
+                    alert("YOU LOSE!");
                     location.reload();
                 }
                 document.getElementById("p1").innerHTML = "Your guess was too high, guess lower. You have " + count + " guesses left !";
