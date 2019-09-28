@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <!-- Title -->
+    <title>Number Guessing Game</title>
+    <!-- Style -->
+    <style>
+    </style>
+</head>
+
+<body>
+
+    <!-- Page content -->
+    <h1>Number Guessing Game</h1>
+    <p id="p1"></p>
+    <input type="number" id="number">
+    <button id="guessButton" onclick="testGuess()">Guess</button>
+
+    <!-- Script -->
+    <script>
+        // random number from 0 to 9
+        var randomNumber = Math.floor(Math.random() * 10);
+        console.log("Random Number: ", randomNumber);
+
+        var count = 10;
+
+        // testGuess function
+        function testGuess(){
+            // input value from user
+            var inputNumber = parseInt(document.getElementById("number").value);
+
+            // log
+            console.log("Input Number: ", inputNumber);
+
+            if (inputNumber == randomNumber){
+                document.getElementById("p1").innerHTML = "YOU ARE THE LORD OF THE GUESSES";
+                document.getElementById("p1").style.backgroundColor = "green";
+            }
+            else if (inputNumber < randomNumber){
+                count--;
+                if (count == 0){
+                    alert("Lose!");
+                    location.reload();
+                }
+                document.getElementById("p1").innerHTML = "Your guess was too low, guess higher. You have " + count + " guesses left !";
+                document.getElementById("p1").style.backgroundColor = "red";
+            }
+            else{
+                count--;
+                if (count == 0){
+                    location.reload();
+                }
+                document.getElementById("p1").innerHTML = "Your guess was too high, guess lower. You have " + count + " guesses left !";
+                document.getElementById("p1").style.backgroundColor = "red";
+            }
+        }
+    </script>
+</body>
+
+</html>
